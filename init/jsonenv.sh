@@ -36,7 +36,7 @@ do
 
     # and lowercase all
     # https://stackoverflow.com/a/2264537/1146207
-    path_name=$(echo "${path_name}" | awk '{print tolower($0)}')
+    # path_name=$(echo "${path_name}" | awk '{print tolower($0)}')
 
     # append to filter
     # https://stackoverflow.com/a/1951523/1146207
