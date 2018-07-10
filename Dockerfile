@@ -8,3 +8,4 @@ RUN apt-get update
 RUN apt-get -y install jq
 
 COPY init/jsonenv.sh /bin/jsonenv
+RUN chmod 755 /bin/jsonenv
