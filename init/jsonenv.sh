@@ -64,10 +64,11 @@ cp ${PATH_JSON} ${PATH_TEMP}
 # replace single entry and store to temporary file
 jq "${jq_filter}" ${PATH_JSON} > ${PATH_TEMP}
 
+# Delete temp file on EXIT
+function finish {
+  rm ${PATH_TEMP}
+}
+trap finish EXIT
+
 # copy back to source
 cp ${PATH_TEMP} ${PATH_JSON}
-
-# Delete temp file
-rm $PATH_TEMP
-
-echo '> Done'
