@@ -38,19 +38,12 @@ do
     # https://stackoverflow.com/a/2264537/1146207
     # path_name=$(echo "${path_name}" | awk '{print tolower($0)}')
 
-    # add double quotes to strings
-    _env_type_check='^([+-]?[0-9]+([.][0-9]+)?)|true|false|null$'
-    if ! [[ ${!env_name} =~ ${_env_type_check} ]];
-        then env_value="\"${!env_name}\"";
-        else env_value=${!env_name}
-    fi
-
     # append to filter
     # https://stackoverflow.com/a/1951523/1146207
-    jq_filters+=("${path_name} = ${env_value}")
+    jq_filters+=("${path_name} = ${!env_name}")
 
     # debug output
-    echo "${env_name} > ${path_name} = ${env_value}"
+    echo "${env_name} > ${path_name} = ${!env_name}"
 done
 
 # join filters, remove delimiter up front
