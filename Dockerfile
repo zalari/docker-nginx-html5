@@ -2,11 +2,14 @@ FROM nginx
 
 ENV IMAGE_VERSION=1.1
 
+# add nginx config
 COPY init/default.conf /etc/nginx/conf.d/default.conf
 
+# update and install jq
 RUN apt-get update
 RUN apt-get -y install jq
 
+# make jsonenv globally available
 COPY init/jsonenv.sh /bin/jsonenv
 RUN chmod 755 /bin/jsonenv
 
