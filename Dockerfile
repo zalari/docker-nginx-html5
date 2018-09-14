@@ -1,7 +1,7 @@
 FROM nginx
 MAINTAINER info@zalari.de
 
-ENV IMAGE_VERSION=1.1
+ENV IMAGE_VERSION=1.2-SNAPSHOT
 
 # add nginx config
 COPY init/default.conf /etc/nginx/conf.d/default.conf
