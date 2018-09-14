@@ -1,4 +1,5 @@
 FROM nginx
+MAINTAINER info@zalari.de
 
 ENV IMAGE_VERSION=1.1
 
